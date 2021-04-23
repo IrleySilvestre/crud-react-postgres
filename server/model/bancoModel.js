@@ -1,7 +1,18 @@
 const db = require('../database/db')
 
+const insertBanco = (req, res)=>{
+    const {id, icone, codigo, nome} = req.body
+    db.query('INSERT INTO vnd_banco (id, icone, codigo, nome) VALUES ($1,$2,$3,$4)', [id, icone, codigo,nome], (error, results)=>{
+        if (error){
+            throw error
+        }
+        res.status(201).send('Sucesso')
+    })
+}
+
+
 const listBanco = (req, res)=>{
-    db.query('SELECT * FROM vnd_banco ORDER BY nome ASC ', (error, results)=>{
+    db.query('SELECT * FROM vnd_banco ORDER BY id DESC ', (error, results)=>{
         if (error){
             throw error
         }
@@ -23,7 +34,8 @@ const getByCod = (req, res)=>{
 
 module.exports = {
     listBanco,
-    getByCod
+    getByCod,
+    insertBanco
 }
 
 

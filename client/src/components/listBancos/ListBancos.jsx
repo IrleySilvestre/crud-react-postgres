@@ -7,9 +7,6 @@ import {Button, Form} from "react-bootstrap";
 
 
 const ListBancos = () => {
-    const submitBancos = () => {
-
-    }
 
 
     const [id, setId] = useState('')
@@ -18,11 +15,28 @@ const ListBancos = () => {
     const [nome, setNome] = useState('')
     const [bancosList, setBancosList] = useState([])
 
+    const submitBanco = () => {
+        console.log("oi")
+        axios.post("http://localhost:3001/banco/insert", {
+            id: id,
+            icone: icone,
+            codigo: codigo,
+            nome: nome
+        });
+
+        setBancosList([
+            ...bancosList,
+            {id, icone, codigo, nome},
+        ])
+
+    }
+
     useEffect(() => {
         axios.get("http://localhost:3001/").then((res) => {
             setBancosList(res.data)
         })
     }, [])
+
 
     return (
 
@@ -34,7 +48,7 @@ const ListBancos = () => {
                     <Form.Group controlId="frmCadastrarBanco">
                         <Form.Label> ID: </Form.Label>
                         <Form.Control type="text" placeholder="Codigo do banco" required onChange={(e) => {
-                            setCodigo(e.setId.value)
+                            setId(e.target.value)
                         }}/>
                         <Form.Label> Codigo: </Form.Label>
                         <Form.Control type="text" placeholder="Codigo do banco" required onChange={(e) => {
@@ -49,7 +63,7 @@ const ListBancos = () => {
                             setNome(e.target.value)
                         }}/>
                     </Form.Group>
-                    <Button onClick={() => submitBancos} variant="primary">Cadastrar</Button>
+                    <Button onClick={submitBanco} variant="primary">Cadastrar</Button>
                 </Form>
             </div>
 
