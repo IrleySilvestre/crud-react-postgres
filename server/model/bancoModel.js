@@ -14,7 +14,7 @@ const getByCod = (req, res)=>{
 
     db.query('SELECT * FROM vnd_banco WHERE codigo =$1 ',[cod], (error, results)=>{
         if (error){
-            throw error
+            res.status(400).body=error
         }
         res.status(200).json(results.rows)
     })

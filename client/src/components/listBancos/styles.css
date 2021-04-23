@@ -1,0 +1,34 @@
+.title-list-banco{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-list-banco i{
+    height: 35px;
+}
+.list-bancos{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1220px;
+
+}
+
+.list-bancos h1{
+    background-color: #fff;
+}
+.list-bancos table{
+    background-color: #c5c8cc;
+}
+
+.frm-banco{
+    border: 2px solid #c9c2c2;
+    padding: 15px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+    width: 680px;
+}

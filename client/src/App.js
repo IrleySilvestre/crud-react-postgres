@@ -1,6 +1,6 @@
 import './App.css';
 import Jumbotron from 'react-bootstrap/Jumbotron'
-
+import ListBancos from "./components/listBancos/ListBancos";
 
 function App() {
 
@@ -12,6 +12,8 @@ function App() {
                     <p>Crud simples com React + Postgres</p>
                 </Jumbotron>
             </header>
+            <ListBancos/>
+
         </div>
     )
 }
