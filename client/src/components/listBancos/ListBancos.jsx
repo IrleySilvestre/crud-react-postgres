@@ -60,10 +60,10 @@ const ListBancos = () => {
                         }}/>
                         <Form.Label>Imagen:</Form.Label>
                         <Form.Control type="text" placeholder="url da logo do banco" onChange={(e) => {
-                            setNome(e.target.value)
+                            setIcone(e.target.value)
                         }}/>
                     </Form.Group>
-                    <Button onClick={submitBanco} variant="primary">Cadastrar</Button>
+                    <Button  onClick={submitBanco} variant="primary">Cadastrar</Button>
                 </Form>
             </div>
 
